@@ -1,7 +1,8 @@
-package com.example.ljmoveisandroidcerto;
+package com.example.ljmoveisandroidcerto.view;
 
 import android.os.Bundle;
 
+import com.example.ljmoveisandroidcerto.R;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;

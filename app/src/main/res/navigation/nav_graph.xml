@@ -3,26 +3,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
-
+    app:startDestination="@id/loginFragment">
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.ljmoveisandroidcerto.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        android:id="@+id/loginFragment"
+        android:name="com.example.ljmoveisplanejadosnovooo.view.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/acao_Login_CadastroCliente"
+            app:destination="@id/cadastroClienteFragment" />
+        <action
+            android:id="@+id/acao_Login_MenuCliente"
+            app:destination="@id/menuClienteFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_esqueciSenhaFragment"
+            app:destination="@id/esqueciSenhaFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.ljmoveisandroidcerto.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:id="@+id/cadastroClienteFragment"
+        android:name="com.example.ljmoveisplanejadosnovooo.view.view.CadastroClienteFragment"
+        android:label="fragment_cadastro_cliente"
+        tools:layout="@layout/fragment_cadastro_cliente" />
+    <fragment
+        android:id="@+id/menuClienteFragment"
+        android:name="com.example.ljmoveisplanejadosnovooo.view.view.MenuClienteFragment"
+        android:label="fragment_menu_cliente"
+        tools:layout="@layout/fragment_menu_cliente" >
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/acao_menuClienteFragment_to_catalogoFragment"
+            app:destination="@id/catalogoFragment" />
+        <action
+            android:id="@+id/acao_menuClienteFragment_to_meusPedidosFragment"
+            app:destination="@id/meusPedidosFragment" />
+        <action
+            android:id="@+id/action_menuClienteFragment_to_fazerOrcamentoFragment"
+            app:destination="@id/fazerOrcamentoFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/catalogoFragment"
+        android:name="com.example.ljmoveisplanejadosnovooo.view.view.CatalogoFragment"
+        android:label="fragment_catalogo"
+        tools:layout="@layout/fragment_catalogo" />
+    <fragment
+        android:id="@+id/meusPedidosFragment"
+        android:name="com.example.ljmoveisplanejadosnovooo.view.view.MeusPedidosFragment"
+        android:label="fragment_meus_pedidos"
+        tools:layout="@layout/fragment_meus_pedidos" />
+    <fragment
+        android:id="@+id/fazerOrcamentoFragment"
+        android:name="com.example.ljmoveisandroidcerto.view.FazerOrcamentoFragment"
+        android:label="fragment_fazer_orcamento"
+        tools:layout="@layout/fragment_fazer_orcamento" />
+    <fragment
+        android:id="@+id/esqueciSenhaFragment"
+        android:name="com.example.ljmoveisandroidcerto.view.EsqueciSenhaFragment"
+        android:label="fragment_esqueci_senha"
+        tools:layout="@layout/fragment_esqueci_senha" />
 </navigation>
