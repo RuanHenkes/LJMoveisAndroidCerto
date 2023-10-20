@@ -58,6 +58,7 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public ItemListRowPedidosBinding itemListRowPedidosBinding;
+
         public MyViewHolder(ItemListRowPedidosBinding itemListRowPedidosBinding) {
             super(itemListRowPedidosBinding.getRoot());
             this.itemListRowPedidosBinding = itemListRowPedidosBinding;
@@ -69,7 +70,6 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.MyViewHo
 
         }
 
-        void onClickPedido(View view, int position, Pedido pedido);
-    }
 
+    }
 }

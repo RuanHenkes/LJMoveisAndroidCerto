@@ -1,8 +1,8 @@
+
 package modelDominio;
 
 import java.io.Serializable;
-
-public class Cliente extends Usuario implements Serializable {
+public class Cliente extends Usuario implements Serializable{
     private static final long serialVersionUID = 123L;
 
     public Cliente(long cpf, String nome, String sobrenome, String celular, String email, String senha, String estado, String cidade, String bairro, int cep, int numeroEndereco) {

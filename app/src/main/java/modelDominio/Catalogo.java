@@ -1,3 +1,4 @@
+
 package modelDominio;
 
 import java.io.Serializable;

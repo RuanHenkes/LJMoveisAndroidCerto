@@ -7,15 +7,18 @@ public class Ambiente implements Serializable{
     private int idAmbiente;
     private String nomeAmbiente;
 
-    public Ambiente(int idAmbiente) {
-        this.idAmbiente = idAmbiente;
-    }
-
     public Ambiente(int idAmbiente, String nomeAmbiente) {
         this.idAmbiente = idAmbiente;
         this.nomeAmbiente = nomeAmbiente;
     }
 
+    public int getidAmbiente() {
+        return idAmbiente;
+    }
+
+    public void setCodAmbiente(int codAmbiente) {
+        this.idAmbiente = codAmbiente;
+    }
 
     public String getNomeAmbiente() {
         return nomeAmbiente;
@@ -25,17 +28,10 @@ public class Ambiente implements Serializable{
         this.nomeAmbiente = nomeAmbiente;
     }
 
-    public int getIdAmbiente() {
-        return idAmbiente;
-    }
-
-    public void setIdAmbiente(int idAmbiente) {
-        this.idAmbiente = idAmbiente;
-    }
     @Override
     public String toString() {
         return "Ambiente{" + "codAmbiente=" + idAmbiente + ", nomeAmbiente=" + nomeAmbiente + '}';
     }
 
-}
 
+}

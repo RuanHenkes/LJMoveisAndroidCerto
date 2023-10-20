@@ -46,7 +46,7 @@ public class MenuClienteFragment extends Fragment {
         binding.bMenuPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.acao_menuClienteFragment_to_fazerUmOrcamentoFragment);
+                Navigation.findNavController(view).navigate(R.id.action_menuClienteFragment_to_fazerOrcamentoFragment);
             }
         });
 

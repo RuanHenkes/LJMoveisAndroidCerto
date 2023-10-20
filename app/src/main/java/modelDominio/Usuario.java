@@ -16,6 +16,10 @@ public class Usuario implements Serializable{
     private int cep;
     private int numeroEndereco;
 
+    public Usuario(long cpf) {
+        this.cpf = cpf;
+    }
+
     public Usuario(long cpf, String nome, String sobrenome, String celular, String email, String senha, String estado, String cidade, String bairro, int cep, int numeroEndereco) {
         this.cpf = cpf;
         this.nome = nome;
