@@ -52,7 +52,7 @@ public class LoginFragment extends Fragment {
             public void run() {
                 // criando a conexão com o servidor
                 ConexaoController conexaoController = new ConexaoController(informacoesViewModel);
-                resultado = conexaoController.criaConexaoServidor("192.168.4.138", 12345);//trocar a porta
+                resultado = conexaoController.criaConexaoServidor("10.0.2.2", 12345);//trocar a porta
                 // sincronizando as threads para agir sobre a tela
                 getActivity().runOnUiThread(new Runnable() {
                     @Override

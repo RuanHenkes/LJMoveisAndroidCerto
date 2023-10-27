@@ -6,7 +6,7 @@
     app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.ljmoveisplanejadosnovooo.view.view.LoginFragment"
+        android:name="com.example.ljmoveisandroidcerto.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -21,12 +21,12 @@
     </fragment>
     <fragment
         android:id="@+id/cadastroClienteFragment"
-        android:name="com.example.ljmoveisplanejadosnovooo.view.view.CadastroClienteFragment"
+        android:name="com.example.ljmoveisandroidcerto.view.CadastroClienteFragment"
         android:label="fragment_cadastro_cliente"
         tools:layout="@layout/fragment_cadastro_cliente" />
     <fragment
         android:id="@+id/menuClienteFragment"
-        android:name="com.example.ljmoveisplanejadosnovooo.view.view.MenuClienteFragment"
+        android:name="com.example.ljmoveisandroidcerto.view.MenuClienteFragment"
         android:label="fragment_menu_cliente"
         tools:layout="@layout/fragment_menu_cliente" >
         <action
@@ -41,12 +41,12 @@
     </fragment>
     <fragment
         android:id="@+id/catalogoFragment"
-        android:name="com.example.ljmoveisplanejadosnovooo.view.view.CatalogoFragment"
+        android:name="com.example.ljmoveisandroidcerto.view.CatalogoFragment"
         android:label="fragment_catalogo"
         tools:layout="@layout/fragment_catalogo" />
     <fragment
         android:id="@+id/meusPedidosFragment"
-        android:name="com.example.ljmoveisplanejadosnovooo.view.view.MeusPedidosFragment"
+        android:name="com.example.ljmoveisandroidcerto.view.MeusPedidosFragment"
         android:label="fragment_meus_pedidos"
         tools:layout="@layout/fragment_meus_pedidos" />
     <fragment

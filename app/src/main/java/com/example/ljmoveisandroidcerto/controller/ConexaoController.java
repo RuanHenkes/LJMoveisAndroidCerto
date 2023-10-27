@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import modelDominio.Ambiente;
 import modelDominio.Catalogo;
+import modelDominio.Cliente;
 import modelDominio.Pedido;
 import modelDominio.Usuario;
 
@@ -48,110 +49,69 @@ public class ConexaoController {
         return resultado;
     }
 
-    public Usuario Logar(Usuario usuario){
+    public Usuario Logar(Usuario usuario) {
         Usuario usuarioLogado;
         String mensagem;
         System.out.println("Entrei no efetuar login!");
 
-        try {
-            out.writeObject("UsuarioLogar");
-            mensagem = (String)in.readObject();
-            System.out.println("recebi OK");
-            out.writeObject(usuario);
-            System.out.println("Enviei o usuario.");
-            usuarioLogado = (Usuario) in.readObject();
-            System.out.println("Recebido: " + usuarioLogado.toString());
+           try {
+                this.informacoesViewModel.getOutputStream().writeObject("UsuarioLogar");
+                mensagem = (String) this.informacoesViewModel.getInputStream().readObject();
+                this.informacoesViewModel.getOutputStream().writeObject(usuario);
+                usuarioLogado = (Usuario) this.informacoesViewModel.getInputStream().readObject();
+            } catch (IOException ioe) {
+                Log.e("BikeShop", "Erro: " + ioe.getMessage());
+                usuarioLogado = null;
 
-        } catch (IOException ioe) {
-            System.out.println("Erro! "+ioe.getMessage());
-            usuarioLogado = null;
-        } catch (ClassNotFoundException classe){
-            System.out.println("Erro" +classe.getMessage());
-            usuarioLogado = null;
+            } catch (ClassNotFoundException classe) {
+                Log.e("BikeShop", "Erro: " + classe.getMessage());
+                usuarioLogado = null;
+
+            }
+            return usuarioLogado;
         }
-        return usuarioLogado;
-    }
 
     //--------------------------------------Cliente-----------------------------------//
+
     public boolean clienteInserir(Usuario usuario){
-        boolean resultado = false;
+        boolean resultado;
         String mensagem;
 
         try {
-            resultado = true;
-            out.writeObject("clienteInserir");
-            mensagem = (String)in.readObject();
-            out.writeObject(usuario);
+            this.informacoesViewModel.getOutputStream().writeObject("clienteInserir");
+            mensagem = (String) this.informacoesViewModel.getInputStream().readObject();
+            this.informacoesViewModel.getOutputStream().writeObject(usuario);
+            resultado = (Boolean) this.informacoesViewModel.getInputStream().readObject();
 
-            resultado = (Boolean)in.readObject();
+        }catch (IOException ioe){
+            Log.e("BikeShop", "Erro: "+ioe.getMessage());
+            resultado = false;
 
-        } catch (IOException ioe) {
-            System.out.println("Erro: "+ioe.getMessage());
-
-        }catch(ClassNotFoundException classe){
-            System.out.println("Erro"+classe.getMessage());
+        }catch (ClassNotFoundException classe){
+            Log.e("BikeShop", "Erro: "+classe.getMessage());
+            resultado = false;
         }
         return resultado;
     }
 
-    //--------------------------------------Alterar-----------------------------------//
-    public boolean clienteAlterar(Usuario usuario){
-        boolean resultado = false;
-        String mensagem;
-
-        try{
-            resultado = true;
-            out.writeObject("clienteAlterar");
-            mensagem = (String)in.readObject();
-            out.writeObject(usuario);
-            System.out.println("Alterei o Usuario");
-            resultado = (Boolean)in.readObject();
-
-        }catch(IOException ioe){
-            System.out.println("Erro: "+ioe.getMessage());
-        }catch(ClassNotFoundException classe){
-            System.out.println("Erro: "+classe.getMessage());
-        }
-        return resultado;
-    }
-
-    //--------------------------------------Deletar-----------------------------------//
-    public boolean clienteDeletar(Usuario usuario){
-        boolean resultado = false;
-        String mensagem;
-
-        try{
-            resultado = true;
-            out.writeObject("clienteDeletar");
-            mensagem = (String)in.readObject();
-            out.writeObject(usuario);
-            System.out.println("Deletei Usuario");
-            resultado = (Boolean)in.readObject();
-
-        }catch(IOException ioe){
-            System.out.println("Erro: "+ioe.getMessage());
-        }catch(ClassNotFoundException classe){
-            System.out.println("Erro: "+classe.getMessage());
-        }
-        return resultado;
-    }
     //--------------------------------------Lista-----------------------------------//
     public ArrayList<Usuario> clienteLista(){
         ArrayList<Usuario> listaClientes;
 
         try {
-            out.writeObject("clienteLista");
-            listaClientes = (ArrayList<Usuario>) in.readObject();
+            this.informacoesViewModel.getOutputStream().writeObject("clienteLista");
+            listaClientes = (ArrayList<Usuario>) this.informacoesViewModel.getInputStream().readObject();
 
-        } catch (IOException ioe) {
-            System.out.println("Erro: "+ioe.getMessage());
+
+        }catch (IOException ioe){
+            Log.e("BikeShop", "Erro: "+ioe.getMessage());
             listaClientes = null;
-        }catch(ClassNotFoundException classe){
-            System.out.println("Erro: " + classe.getMessage());
+
+        }catch (ClassNotFoundException classe){
+            Log.e("BikeShop", "Erro: "+ classe.getMessage());
             listaClientes = null;
         }
         return listaClientes;
-
     }
 
 
@@ -162,14 +122,11 @@ public class ConexaoController {
         String mensagem;
 
         try {
-            System.out.println("Entrou no catalogo Inserir");
-            resultado = true;
-            out.writeObject("catalogoInserir");
-            System.out.println("Mandou Catalogo Inserir");
-            mensagem = (String)in.readObject();
-            out.writeObject(catalogo);
 
-            resultado = (Boolean)in.readObject();
+            this.informacoesViewModel.getOutputStream().writeObject("catalogoInserir");
+            mensagem = (String) this.informacoesViewModel.getInputStream().readObject();
+            this.informacoesViewModel.getOutputStream().writeObject(catalogo);
+            resultado = (Boolean) this.informacoesViewModel.getInputStream().readObject();
 
         } catch (IOException ioe) {
             System.out.println("Erro: "+ioe.getMessage());
@@ -181,26 +138,6 @@ public class ConexaoController {
     }
 
 
-    //--------------------------Deletar-----------------------//
-    public boolean catalogoDeletar(Catalogo catalogo){
-        boolean resultado = false;
-        String mensagem;
-
-        try{
-            resultado = true;
-            out.writeObject("catalogoDeletar");
-            mensagem = (String)in.readObject();
-            out.writeObject(catalogo);
-            System.out.println("Deletei Catalogo");
-            resultado = (Boolean)in.readObject();
-
-        }catch(IOException ioe){
-            System.out.println("Erro: "+ioe.getMessage());
-        }catch(ClassNotFoundException classe){
-            System.out.println("Erro: "+classe.getMessage());
-        }
-        return resultado;
-    }
     //--------------------------Lista-----------------------//
     public ArrayList<Catalogo> catalogoLista(){
         ArrayList<Catalogo> listaCatalogo;
@@ -227,12 +164,11 @@ public class ConexaoController {
         String mensagem;
 
         try {
-            resultado = true;
-            out.writeObject("pedidoInserir");
-            mensagem = (String)in.readObject();
-            out.writeObject(pedido);
 
-            resultado = (Boolean)in.readObject();
+            this.informacoesViewModel.getOutputStream().writeObject("pedidoInserir");
+            mensagem = (String) this.informacoesViewModel.getInputStream().readObject();
+            this.informacoesViewModel.getOutputStream().writeObject(pedido);
+            resultado = (Boolean) this.informacoesViewModel.getInputStream().readObject();
 
         } catch (IOException ioe) {
             System.out.println("Erro: "+ioe.getMessage());
@@ -244,57 +180,14 @@ public class ConexaoController {
     }
 
 
-    //-----------------------Alterar----------------------------//
-    public boolean pedidoAlterar(Pedido pedido){
-        boolean resultado = false;
-        String mensagem;
-
-        try{
-            resultado = true;
-            out.writeObject("pedidoAlterar");
-            mensagem = (String)in.readObject();
-            out.writeObject(pedido);
-            System.out.println("Alterei o Pedido");
-            resultado = (Boolean)in.readObject();
-
-        }catch(IOException ioe){
-            System.out.println("Erro: "+ioe.getMessage());
-        }catch(ClassNotFoundException classe){
-            System.out.println("Erro: "+classe.getMessage());
-        }
-        return resultado;
-    }
-
-
-    //-------------------------Deletar--------------------------//
-    public boolean pedidoDeletar(Pedido pedido){
-        boolean resultado = false;
-        String mensagem;
-
-        try{
-            resultado = true;
-            out.writeObject("pedidoDeletar");
-            mensagem = (String)in.readObject();
-            out.writeObject(pedido);
-            System.out.println("Deletei Pedido");
-            resultado = (Boolean)in.readObject();
-
-        }catch(IOException ioe){
-            System.out.println("Erro: "+ioe.getMessage());
-        }catch(ClassNotFoundException classe){
-            System.out.println("Erro: "+classe.getMessage());
-        }
-        return resultado;
-    }
-
 
     //--------------------------Lista-----------------------//
     public ArrayList<Pedido> pedidoLista(){
         ArrayList<Pedido> listaPedidos;
 
         try {
-            out.writeObject("pedidoLista");
-            listaPedidos = (ArrayList<Pedido>) in.readObject();
+            this.informacoesViewModel.getOutputStream().writeObject("pedidoLista");
+            listaPedidos = (ArrayList<Pedido>) this.informacoesViewModel.getInputStream().readObject();
 
         } catch (IOException ioe) {
             System.out.println("Erro: "+ioe.getMessage());
@@ -312,59 +205,21 @@ public class ConexaoController {
         ArrayList<Ambiente> listaAmbientes;
 
         try {
-            out.writeObject("ambienteLista");
-            listaAmbientes = (ArrayList<Ambiente>) in.readObject();
+            Log.e("LJMoveisPlanejadosCliente","Mandei ambienteLista");
+            this.informacoesViewModel.getOutputStream().writeObject("ambienteLista");
+            Log.e("LJMoveisPlanejadosCliente","Recebi lista Ambeintes");
+            listaAmbientes = (ArrayList<Ambiente>) this.informacoesViewModel.getInputStream().readObject();
+
 
         } catch (IOException ioe) {
-            System.out.println("Erro: "+ioe.getMessage());
+            Log.e("LJMoveisPlanejadosCliente","Erro: "+ioe.getMessage());
             listaAmbientes = null;
         }catch(ClassNotFoundException classe){
-            System.out.println("Erro: " + classe.getMessage());
+            Log.e("LJMoveisPlanejadosCliente","Erro: " + classe.getMessage());
             listaAmbientes = null;
         }
         return listaAmbientes;
     }
-    public boolean ambienteInserir(Ambiente ambiente){
-        boolean resultado = false;
-        String mensagem;
-
-        try {
-            resultado = true;
-            out.writeObject("ambienteInserir");
-            mensagem = (String)in.readObject();
-            out.writeObject(ambiente);
-
-            resultado = (Boolean)in.readObject();
-
-        } catch (IOException ioe) {
-            System.out.println("Erro: "+ioe.getMessage());
-
-        }catch(ClassNotFoundException classe){
-            System.out.println("Erro"+classe.getMessage());
-        }
-        return resultado;
-    }
-
-    public boolean ambienteDeletar(Ambiente ambiente){
-        boolean resultado = false;
-        String mensagem;
-
-        try{
-            resultado = true;
-            out.writeObject("ambienteDeletar");
-            mensagem = (String)in.readObject();
-            out.writeObject(ambiente);
-            System.out.println("Deletei o ambiente");
-            resultado = (Boolean)in.readObject();
-
-        }catch(IOException ioe){
-            System.out.println("Erro: "+ioe.getMessage());
-        }catch(ClassNotFoundException classe){
-            System.out.println("Erro: "+classe.getMessage());
-        }
-        return resultado;
-    }
-
     public void fim(){
         try {
             out.writeObject("fim");

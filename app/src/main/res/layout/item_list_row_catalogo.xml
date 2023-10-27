@@ -20,7 +20,7 @@
         app:cardElevation="10dp"
         app:cardUseCompatPadding="true">
 
-        <LinearLayout
+        <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tvDescricaoCatalogo"
                 android:textColor="@color/black"/>
-        </LinearLayout>
+        </GridLayout>
 
 
     </androidx.cardview.widget.CardView>

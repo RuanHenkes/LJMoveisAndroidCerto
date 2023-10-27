@@ -136,9 +136,6 @@ public class Pedido implements Serializable{
         }else if (textura == 3){
             retorno = "Brilhante";
         }
-
-
-
         return retorno;
     }
 

@@ -32,6 +32,7 @@ public class FazerOrcamentoFragment extends Fragment {
 
     ArrayList<Pedido> listaPedido;
     ArrayList<Ambiente>  listaAmbientes;
+    ConexaoController conexaoController;
 
     Pedido pedido;
 
@@ -60,8 +61,11 @@ public class FazerOrcamentoFragment extends Fragment {
                 // obtendo a lista de marcas
                 ConexaoController conexaoController = new ConexaoController(informacoesViewModel);
                 listaPedido = conexaoController.pedidoLista();
+                listaAmbientes = conexaoController.ambienteLista();
+
                 // verificando as texturas recebidas
                 if (listaPedido != null) {
+
                     // sincronizando as threads para carregar o spinner
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
@@ -70,6 +74,7 @@ public class FazerOrcamentoFragment extends Fragment {
                         public void run() {
 
                             carregaSpinnerAmbientes(listaAmbientes);
+                            carregaSpinnerTextura(listaPedido);
                         }
                     });
                 }
@@ -84,7 +89,11 @@ public class FazerOrcamentoFragment extends Fragment {
                 // verificando se o usuário informou os dados
                 if (!binding.etFazerOrcamentoNomeDoMovel.getText().toString().equals("")) {
                     if (!binding.etFazerOrcamentoQualCor.getText().toString().equals("")) {
-                        if (binding.spFazerOrcamentoTextura.getSelectedItemPosition() > 0) {
+                        if (binding.spFazerOrcamentoTextura.getSelectedItemPosition() >= 0) {
+//                            Mudar o >=
+
+
+
                             if (!binding.etFazerOrcamentoValor.getText().toString().equals("")) {
                                 if (binding.spFazerOrcamentoAmbiente.getSelectedItemPosition() > 0) {
                                     if (!binding.etFazerOrcamentoConsideracao.getText().toString().equals("")) {
@@ -127,28 +136,25 @@ public class FazerOrcamentoFragment extends Fragment {
                                         thread.start();
 
                                     } else {
-                                        binding.etFazerOrcamentoNomeDoMovel.setError("Erro: informe o nome do movel.");
-                                        binding.etFazerOrcamentoNomeDoMovel.requestFocus();
+                                        binding.etFazerOrcamentoConsideracao.setError("Erro: informe se tens mais alguma consideracao.");
+                                        binding.etFazerOrcamentoConsideracao.requestFocus();}
                                     }
                                 } else {
-                                    binding.etFazerOrcamentoQualCor.setError("Erro: informe a cor do movel.");
-                                    binding.etFazerOrcamentoQualCor.requestFocus();
+                                    Toast.makeText(getContext(), "Erro: informe a textura.", Toast.LENGTH_SHORT).show();
+
                                 }
                             } else {
-                                Toast.makeText(getContext(), "Erro: informe a textura.", Toast.LENGTH_SHORT).show();
-                            }
+                                binding.etFazerOrcamentoValor.setError("Erro: informe o valor que deseja gastar.");
+                                binding.etFazerOrcamentoValor.requestFocus();}
                         } else {
-                            binding.etFazerOrcamentoValor.setError("Erro: informe o modelo.");
-                            binding.etFazerOrcamentoValor.requestFocus();
+                            Toast.makeText(getContext(), "Erro: informe o Ambiente.", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(getContext(), "Erro: informe o ambiente.", Toast.LENGTH_SHORT).show();
+                        binding.etFazerOrcamentoQualCor.setError("Erro: informe a cor do movel.");
+                        binding.etFazerOrcamentoQualCor.requestFocus();
                     }
-                } else {
-                    binding.etFazerOrcamentoConsideracao.setError("Erro: informe a consideração.");
-                    binding.etFazerOrcamentoConsideracao.requestFocus();
-                }
-            }
+                } 
+
         });
 
         binding.bFazerOrcamentoCancelar.setOnClickListener(new View.OnClickListener() {
@@ -175,24 +181,27 @@ public class FazerOrcamentoFragment extends Fragment {
         binding = null;
     }
     public void carregaSpinnerAmbientes(ArrayList<Ambiente> listaAmbientes) {
+        System.out.println("Entrei no carregaSpinner");
         // declarando o vetor com os nomes das Marcas
         String[] nomeAmbientes = new String[listaAmbientes.size() + 1];
+        System.out.println("NomeAmbientes");
         // carregando o vetor com os nomes das Marcas
         nomeAmbientes[0] = "<< Selecionar >>"; // adicionando o selecionar na primeira posição (lembrar disso quando obter o objeto a partir do spinner)
         for (int x = 0; x < listaAmbientes.size(); x++) {
             Ambiente ambiente = listaAmbientes.get(x);
             nomeAmbientes[x + 1] = ambiente.getNomeAmbiente();
         }
+        
         // definindo o adapter (conteúdo) do spinner
         binding.spFazerOrcamentoAmbiente.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, nomeAmbientes));
-    }public void carregaSpinnerTextura(ArrayList<Pedido> listaTexturas) {
+    }public void carregaSpinnerTextura(ArrayList<Pedido> listaPedido) {
         // declarando o vetor com os nomes das Marcas
-        String[] nomeTexturas = new String[listaTexturas.size() + 1];
+        String[] nomeTexturas = new String[listaPedido.size() + 1];
         // carregando o vetor com os nomes das Marcas
         nomeTexturas[0] = "<< Selecionar >>"; // adicionando o selecionar na primeira posição (lembrar disso quando obter o objeto a partir do spinner)
-        for (int x = 0; x < listaTexturas.size(); x++) {
-            Ambiente ambiente = listaAmbientes.get(x);
-            nomeTexturas[x + 1] = pedido.ambienteLiteral(ambiente.getidAmbiente());
+        for (int x = 0; x < listaPedido.size(); x++) {
+            Pedido textura = listaPedido.get(x);
+            nomeTexturas[x + 1] = textura.texturaLiteral(textura.getTextura());
         }
         // definindo o adapter (conteúdo) do spinner
         binding.spFazerOrcamentoTextura.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, nomeTexturas));
