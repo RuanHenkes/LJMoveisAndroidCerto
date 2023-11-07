@@ -143,8 +143,9 @@ public class ConexaoController {
         ArrayList<Catalogo> listaCatalogo;
 
         try {
-            out.writeObject("catalogoLista");
-            listaCatalogo = (ArrayList<Catalogo>) in.readObject();
+            this.informacoesViewModel.getOutputStream().writeObject("catalogoLista");
+            listaCatalogo = (ArrayList<Catalogo>) this.informacoesViewModel.getInputStream().readObject();
+
 
         } catch (IOException ioe) {
             System.out.println("Erro: "+ioe.getMessage());

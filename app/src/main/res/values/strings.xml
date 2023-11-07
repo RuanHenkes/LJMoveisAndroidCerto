@@ -11,4 +11,11 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <array name="opcoesTextura">
+        <item>===Selecionar===</item>
+        <item>MDF</item>
+        <item>Amadeirado</item>
+        <item>Liso</item>
+        <item>Brilhante</item>
+    </array>
 </resources>
