@@ -1,6 +1,7 @@
 package com.example.ljmoveisandroidcerto.Adapter;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.MyViewHo
     public PedidosAdapter(List<Pedido> listaPedidos, PedidoOnClickListener pedidoOnClickListener) {
         this.listaPedidos = listaPedidos;
         this.pedidoOnClickListener = pedidoOnClickListener;
+        Log.e("ListaPedidos","Tem "+ listaPedidos.size());
     }
 
     @Override
@@ -35,9 +37,8 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.MyViewHo
         Pedido pedido = listaPedidos.get(position);
         holder.itemListRowPedidosBinding.tvVisualizarNomePedido.setText(pedido.getNomePedido());
         holder.itemListRowPedidosBinding.tvVisualizarCorPedido.setText(pedido.getCor());
-        holder.itemListRowPedidosBinding.tvVisualizarTexturaPedido.setText(pedido.getTextura());
-        holder.itemListRowPedidosBinding.tvVisualizarDecricaoPedido.setText(pedido.getDescricao());
-        holder.itemListRowPedidosBinding.tvVisualizarValorPedido.setText((int) pedido.getValor());
+        holder.itemListRowPedidosBinding.tvVisualizarTexturaPedido.setText(pedido.texturaLiteral(position));
+        holder.itemListRowPedidosBinding.tvVisualizarValorPedido.setText(String.valueOf(pedido.getValor()));
         /* CUIDADO: .setText() precisa sempre de String. Se for outro tipo de dado, deve ser feita a conversão com o String.valueOf() */
 
         // tratando o clique no item

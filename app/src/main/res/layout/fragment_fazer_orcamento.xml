@@ -57,15 +57,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spFazerOrcamentoAmbiente"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mais alguma consideração: "
-        android:id="@+id/tvFazerOrcamentoConsideracao"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/etFazerOrcamentoConsideracao"/>
 
     <Button
         android:layout_width="match_parent"

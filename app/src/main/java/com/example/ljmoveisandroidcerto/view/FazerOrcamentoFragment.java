@@ -72,7 +72,6 @@ public class FazerOrcamentoFragment extends Fragment {
 
                         //perguntar pro sor aqui devo carrega textura literal?
                         public void run() {
-
                             carregaSpinnerAmbientes(listaAmbientes);
                         }
                     });
@@ -92,68 +91,64 @@ public class FazerOrcamentoFragment extends Fragment {
 //                            Mudar o >=
 
 
-
                             if (!binding.etFazerOrcamentoValor.getText().toString().equals("")) {
                                 if (binding.spFazerOrcamentoAmbiente.getSelectedItemPosition() > 0) {
-                                    if (!binding.etFazerOrcamentoConsideracao.getText().toString().equals("")) {
-                                        // obtendo as informações
 
-                                        String nomeMovel = binding.etFazerOrcamentoNomeDoMovel.getText().toString();
-                                        String qualCor = binding.etFazerOrcamentoQualCor.getText().toString();
-                                        int textura = binding.spFazerOrcamentoTextura.getSelectedItemPosition();
-                                        float preco = Float.parseFloat(binding.etFazerOrcamentoValor.getText().toString());
+                                            // obtendo as informações
 
-                                        //ambiente aqui spinner
-                                        Ambiente ambiente = listaAmbientes.get(binding.spFazerOrcamentoAmbiente.getSelectedItemPosition() - 1);
-                                        String consideracao = binding.etFazerOrcamentoConsideracao.getText().toString();
+                                            String nomeMovel = binding.etFazerOrcamentoNomeDoMovel.getText().toString();
+                                            String qualCor = binding.etFazerOrcamentoQualCor.getText().toString();
+                                            int textura = binding.spFazerOrcamentoTextura.getSelectedItemPosition();
+                                            float preco = Float.parseFloat(binding.etFazerOrcamentoValor.getText().toString());
 
-                                        Usuario usuarioLogado = informacoesViewModel.getUsuarioLogado();
-                                        // instanciando o pedido
-                                        Pedido pedido = new Pedido(nomeMovel, qualCor, textura, preco, ambiente.getidAmbiente(), consideracao, usuarioLogado);
+                                            //ambiente aqui spinner
+                                            Ambiente ambiente = listaAmbientes.get(binding.spFazerOrcamentoAmbiente.getSelectedItemPosition() - 1);
 
-                                        // criando a thread para fazer um orcamento
-                                        Thread thread = new Thread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                // realizando fazer o orcamento
-                                                ConexaoController conexaoController = new ConexaoController(informacoesViewModel);
-                                                resultado = conexaoController.pedidoInserir(pedido);
-                                                // sincronizando as threads para tratar o resultado
-                                                getActivity().runOnUiThread(new Runnable() {
-                                                    @Override
-                                                    public void run() {
-                                                        if (resultado == true) {
-                                                            Toast.makeText(getContext(), "Pedido feito com sucesso.", Toast.LENGTH_SHORT).show();
-                                                            limpaCampos();
-                                                        } else {
-                                                            Toast.makeText(getContext(), "Erro: pedido não cadastrado.", Toast.LENGTH_SHORT).show();
+                                            Usuario usuarioLogado = informacoesViewModel.getUsuarioLogado();
+                                            // instanciando o pedido
+                                            Pedido pedido = new Pedido(nomeMovel, qualCor, textura, preco, ambiente.getNomeAmbiente(), 0, usuarioLogado);
+
+                                            // criando a thread para fazer um orcamento
+                                            Thread thread = new Thread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    // realizando fazer o orcamento
+                                                    ConexaoController conexaoController = new ConexaoController(informacoesViewModel);
+                                                    resultado = conexaoController.pedidoInserir(pedido);
+                                                    // sincronizando as threads para tratar o resultado
+                                                    getActivity().runOnUiThread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            if (resultado == true) {
+                                                                Toast.makeText(getContext(), "Pedido feito com sucesso.", Toast.LENGTH_SHORT).show();
+                                                                limpaCampos();
+                                                            } else {
+                                                                Toast.makeText(getContext(), "Erro: pedido não cadastrado.", Toast.LENGTH_SHORT).show();
+                                                            }
                                                         }
-                                                    }
-                                                });
-                                            }
-                                        });
-                                        thread.start();
+                                                    });
+                                                }
+                                            });
+                                            thread.start();
 
+
+                                        } else {
+                                            Toast.makeText(getContext(), "Erro: informe a textura.", Toast.LENGTH_SHORT).show();
+
+                                        }
                                     } else {
-                                        binding.etFazerOrcamentoConsideracao.setError("Erro: informe se tens mais alguma consideracao.");
-                                        binding.etFazerOrcamentoConsideracao.requestFocus();}
+                                        binding.etFazerOrcamentoValor.setError("Erro: informe o valor que deseja gastar.");
+                                        binding.etFazerOrcamentoValor.requestFocus();
                                     }
                                 } else {
-                                    Toast.makeText(getContext(), "Erro: informe a textura.", Toast.LENGTH_SHORT).show();
-
+                                    Toast.makeText(getContext(), "Erro: informe o Ambiente.", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
-                                binding.etFazerOrcamentoValor.setError("Erro: informe o valor que deseja gastar.");
-                                binding.etFazerOrcamentoValor.requestFocus();}
-                        } else {
-                            Toast.makeText(getContext(), "Erro: informe o Ambiente.", Toast.LENGTH_SHORT).show();
+                                binding.etFazerOrcamentoQualCor.setError("Erro: informe a cor do movel.");
+                                binding.etFazerOrcamentoQualCor.requestFocus();
+                            }
                         }
-                    } else {
-                        binding.etFazerOrcamentoQualCor.setError("Erro: informe a cor do movel.");
-                        binding.etFazerOrcamentoQualCor.requestFocus();
                     }
-                } 
-
         });
 
         binding.bFazerOrcamentoCancelar.setOnClickListener(new View.OnClickListener() {
@@ -171,7 +166,6 @@ public class FazerOrcamentoFragment extends Fragment {
         binding.spFazerOrcamentoTextura.setSelection(0);
         binding.etFazerOrcamentoValor.setText("");
         binding.spFazerOrcamentoAmbiente.setSelection(0);
-        binding.etFazerOrcamentoConsideracao.setText("");
     }
 
     @Override
@@ -190,7 +184,6 @@ public class FazerOrcamentoFragment extends Fragment {
             Ambiente ambiente = listaAmbientes.get(x);
             nomeAmbientes[x + 1] = ambiente.getNomeAmbiente();
         }
-        
         // definindo o adapter (conteúdo) do spinner
         binding.spFazerOrcamentoAmbiente.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, nomeAmbientes));
     }

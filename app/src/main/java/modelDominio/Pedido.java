@@ -14,12 +14,11 @@ public class Pedido implements Serializable{
     private String cor;
     private int textura;
     private float valor;
-    private int ambiente;
+    private String ambiente;
     private int status;
-    private String descricao;
     private Usuario usuario;
 
-    public Pedido(int idPedido, String nomePedido, String cor, int textura, float valor, int ambiente, int status, String descricao, Usuario usuario) {
+    public Pedido(int idPedido, String nomePedido, String cor, int textura, float valor, String ambiente, Usuario usuario) {
         this.idPedido = idPedido;
         this.nomePedido = nomePedido;
         this.cor = cor;
@@ -27,27 +26,27 @@ public class Pedido implements Serializable{
         this.valor = valor;
         this.ambiente = ambiente;
         this.status = status;
-        this.descricao = descricao;
         this.usuario = usuario;
     }
 
-    public Pedido(String nomePedido, String cor, int textura, float valor, int ambiente, int status, String descricao, Usuario usuario) {
+    public Pedido(String nomePedido, String cor, int textura, float valor, String ambiente, int status, Usuario usuario) {
         this.nomePedido = nomePedido;
         this.cor = cor;
         this.textura = textura;
         this.valor = valor;
         this.ambiente = ambiente;
         this.status = status;
-        this.descricao = descricao;
         this.usuario = usuario;
     }
-    public Pedido(String nomePedido, String cor, int textura, float valor, int ambiente, String descricao, Usuario usuario) {
+
+
+    public Pedido(int idPedido, String nomeItem, String cor, int textura, float orcamento, String ambiente, int status, Usuario usuario) {
         this.nomePedido = nomePedido;
         this.cor = cor;
         this.textura = textura;
         this.valor = valor;
         this.ambiente = ambiente;
-        this.descricao = descricao;
+        this.status = status;
         this.usuario = usuario;
     }
 
@@ -91,11 +90,11 @@ public class Pedido implements Serializable{
         this.valor = valor;
     }
 
-    public int getAmbiente() {
+    public String getAmbiente() {
         return ambiente;
     }
 
-    public void setAmbiente(int ambiente) {
+    public void setAmbiente(String ambiente) {
         this.ambiente = ambiente;
     }
 
@@ -106,16 +105,6 @@ public class Pedido implements Serializable{
     public void setStatus(int status) {
         this.status = status;
     }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-
 
     public Usuario getUsuario() {
         return usuario;
@@ -136,38 +125,13 @@ public class Pedido implements Serializable{
         }else if (textura == 3){
             retorno = "Brilhante";
         }
+
+
+
         return retorno;
     }
 
-    public String ambienteLiteral(int ambiente){
-        String retorno = "Cozinha";
 
-        if (ambiente == 1){
-            retorno = "Cozinha";
-        } else if (ambiente == 2){
-            retorno = "Sala de jantar";
-        }else if (ambiente == 3){
-            retorno = "Sala de estar";
-        }else if (ambiente == 4){
-            retorno = "Banheiro";
-        }else if (ambiente == 5){
-            retorno = "Escritório";
-        }else if (ambiente == 6 ){
-            retorno = "Garagem";
-        }else if (ambiente == 7){
-            retorno = "Closet";
-        }else if (ambiente == 8){
-            retorno = "Quarto";
-        }else if (ambiente == 9){
-            retorno = "Lavanderia";
-        }else if (ambiente == 10 ){
-            retorno = "Despensa";
-        }else if (ambiente == 11){
-            retorno = "Deposito";
-        }
-        return retorno;
-
-    }
 
     public String statusLiteral(int status){
         String retorno = "Recebido";
