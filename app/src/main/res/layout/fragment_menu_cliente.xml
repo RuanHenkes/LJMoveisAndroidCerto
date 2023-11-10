@@ -4,22 +4,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/azulfraco"
     tools:context=".view.MenuClienteFragment">
 
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/tvLogin"
+        android:textColor="@color/azulfraco"
+        android:text="Usuário/CPF: "/>
     <Button
         android:id="@+id/bMenuCatalogo"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/laranjaforte"
+        android:textColor="@color/black"
         android:text="Catalogo" />
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="60dp"
         android:id="@+id/bMenuPedido"
+        android:backgroundTint="@color/laranjaforte"
+        android:textColor="@color/black"
         android:text="Fazer um pedido"/>
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="60dp"
         android:id="@+id/bMenuMeusPedidos"
+        android:backgroundTint="@color/laranjaforte"
+        android:textColor="@color/black"
         android:text="Meus pedidos"/>
 
 </LinearLayout>

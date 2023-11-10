@@ -36,7 +36,6 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.MyViewHo
         holder.itemListRowPedidosBinding.tvVisualizarNomePedido.setText(pedido.getNomePedido());
         holder.itemListRowPedidosBinding.tvVisualizarCorPedido.setText(pedido.getCor());
         holder.itemListRowPedidosBinding.tvVisualizarTexturaPedido.setText(pedido.getTextura());
-        holder.itemListRowPedidosBinding.tvVisualizarDecricaoPedido.setText(pedido.getDescricao());
         holder.itemListRowPedidosBinding.tvVisualizarValorPedido.setText((int) pedido.getValor());
         /* CUIDADO: .setText() precisa sempre de String. Se for outro tipo de dado, deve ser feita a conversão com o String.valueOf() */
 

@@ -19,7 +19,7 @@ public class Pedido implements Serializable{
     private String descricao;
     private Usuario usuario;
 
-    public Pedido(int idPedido, String nomePedido, String cor, int textura, float valor, int ambiente, int status, String descricao, Usuario usuario) {
+    public Pedido(int idPedido, String nomePedido, String cor, int textura, float valor, int ambiente, int status, Usuario usuario) {
         this.idPedido = idPedido;
         this.nomePedido = nomePedido;
         this.cor = cor;
@@ -27,27 +27,24 @@ public class Pedido implements Serializable{
         this.valor = valor;
         this.ambiente = ambiente;
         this.status = status;
-        this.descricao = descricao;
         this.usuario = usuario;
     }
 
-    public Pedido(String nomePedido, String cor, int textura, float valor, int ambiente, int status, String descricao, Usuario usuario) {
+    public Pedido(String nomePedido, String cor, int textura, float valor, int ambiente, int status, Usuario usuario) {
         this.nomePedido = nomePedido;
         this.cor = cor;
         this.textura = textura;
         this.valor = valor;
         this.ambiente = ambiente;
         this.status = status;
-        this.descricao = descricao;
         this.usuario = usuario;
     }
-    public Pedido(String nomePedido, String cor, int textura, float valor, int ambiente, String descricao, Usuario usuario) {
+    public Pedido(String nomePedido, String cor, int textura, float valor, int ambiente, Usuario usuario) {
         this.nomePedido = nomePedido;
         this.cor = cor;
         this.textura = textura;
         this.valor = valor;
         this.ambiente = ambiente;
-        this.descricao = descricao;
         this.usuario = usuario;
     }
 
@@ -107,13 +104,6 @@ public class Pedido implements Serializable{
         this.status = status;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
 
 

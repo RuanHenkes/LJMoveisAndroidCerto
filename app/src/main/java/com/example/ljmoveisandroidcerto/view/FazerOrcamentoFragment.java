@@ -95,7 +95,7 @@ public class FazerOrcamentoFragment extends Fragment {
 
                             if (!binding.etFazerOrcamentoValor.getText().toString().equals("")) {
                                 if (binding.spFazerOrcamentoAmbiente.getSelectedItemPosition() > 0) {
-                                    if (!binding.etFazerOrcamentoConsideracao.getText().toString().equals("")) {
+
                                         // obtendo as informações
 
                                         String nomeMovel = binding.etFazerOrcamentoNomeDoMovel.getText().toString();
@@ -105,11 +105,11 @@ public class FazerOrcamentoFragment extends Fragment {
 
                                         //ambiente aqui spinner
                                         Ambiente ambiente = listaAmbientes.get(binding.spFazerOrcamentoAmbiente.getSelectedItemPosition() - 1);
-                                        String consideracao = binding.etFazerOrcamentoConsideracao.getText().toString();
+
 
                                         Usuario usuarioLogado = informacoesViewModel.getUsuarioLogado();
                                         // instanciando o pedido
-                                        Pedido pedido = new Pedido(nomeMovel, qualCor, textura, preco, ambiente.getidAmbiente(), consideracao, usuarioLogado);
+                                        Pedido pedido = new Pedido(nomeMovel, qualCor, textura, preco, ambiente.getidAmbiente(), usuarioLogado);
 
                                         // criando a thread para fazer um orcamento
                                         Thread thread = new Thread(new Runnable() {
@@ -134,9 +134,6 @@ public class FazerOrcamentoFragment extends Fragment {
                                         });
                                         thread.start();
 
-                                    } else {
-                                        binding.etFazerOrcamentoConsideracao.setError("Erro: informe se tens mais alguma consideracao.");
-                                        binding.etFazerOrcamentoConsideracao.requestFocus();}
                                     }
                                 } else {
                                     Toast.makeText(getContext(), "Erro: informe a textura.", Toast.LENGTH_SHORT).show();
@@ -171,7 +168,6 @@ public class FazerOrcamentoFragment extends Fragment {
         binding.spFazerOrcamentoTextura.setSelection(0);
         binding.etFazerOrcamentoValor.setText("");
         binding.spFazerOrcamentoAmbiente.setSelection(0);
-        binding.etFazerOrcamentoConsideracao.setText("");
     }
 
     @Override
