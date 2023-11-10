@@ -4,7 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/azulfraco"
     tools:context=".view.CadastroClienteFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/tvLogiddn"
+        android:textColor="@color/azulfraco"
+        android:text="Usuário/CPF: "/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -25,6 +33,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="CPF: "
                 android:id="@+id/tvCadastroClienteCpf"
                 />
@@ -32,7 +41,7 @@
             <EditText
                 android:id="@+id/etCadastroClienteCpf"
                 android:layout_width="match_parent"
-                android:layout_height="41dp"
+                android:layout_height="34dp"
                 android:background="@drawable/cadastro_botao"
                 android:inputType="numberDecimal"
                 android:paddingLeft="10dp"
@@ -41,12 +50,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Nome: "
                 android:id="@+id/tvCadastroClienteNome"/>
 
             <EditText
                 android:id="@+id/etCadastroClienteNome"
-                android:layout_width="168dp"
+                android:layout_width="410dp"
                 android:layout_height="34dp"
                 android:background="@drawable/cadastro_botao"
                 android:paddingLeft="10dp"
@@ -55,18 +65,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Sobrenome: "
                 android:id="@+id/tvCadastroClienteSobrenone"/>
 
             <EditText
                 android:id="@+id/etCadastroClienteSobrenome"
-                android:layout_width="211dp"
+                android:layout_width="410dp"
                 android:layout_height="34dp"
                 android:background="@drawable/cadastro_botao"
                 android:paddingLeft="10dp"
                 android:hint="Henkes"/>
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="@color/black"
                 android:layout_height="wrap_content"
                 android:text="Celular: "
                 android:id="@+id/tvCadastroClienteCelular"
@@ -84,6 +96,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Email: "
                 android:id="@+id/tvCadastroClienteEmail"/>
             <EditText
@@ -99,6 +112,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Senha: "
                 android:id="@+id/tvCadastroClienteSenha"/>
             <EditText
@@ -113,6 +127,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Estado: "
                 android:id="@+id/tvCadastroClienteEstado"
 
@@ -129,6 +144,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Cidade: "
                 android:id="@+id/tvCadastroClienteCidade"/>
             <EditText
@@ -143,6 +159,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Bairro: "
                 android:id="@+id/tvCadastroClienteBairro"/>
             <EditText
@@ -156,6 +173,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="@color/black"
                 android:layout_height="wrap_content"
                 android:text="Cep: "
                 android:id="@+id/tvCadastroClienteCep"/>
@@ -171,6 +189,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Numero do endereço: "
                 android:id="@+id/tvCadastroClienteNumeroEndereco"/>
 
@@ -185,13 +204,19 @@
                 />
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_gravity="center"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/laranjaforte"
+                android:textColor="@color/black"
                 android:text="Salvar"
                 android:id="@+id/bCadastroClienteSalvar"/>
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_gravity="center"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/laranjaforte"
+                android:textColor="@color/black"
                 android:text="Cancelar"
                 android:id="@+id/bCadastroClienteCancelar"/>
 

@@ -4,12 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/azulfraco"
     tools:context=".view.LoginFragment">
 
     <TextView
         android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:id="@+id/tvLogiddn"
+        android:textColor="@color/azulfraco"
+        android:text="Usuário/CPF: "/>
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvLoginUsuario"
+        android:textColor="@color/black"
         android:text="Usuário/CPF: "/>
     <EditText
         android:layout_width="match_parent"
@@ -22,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvLoginSenha"
+        android:textColor="@color/black"
         android:text="Senha: "/>
     <EditText
         android:layout_width="match_parent"
@@ -31,25 +40,37 @@
         android:text="12345"
         android:hint="Senha"/>
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
         android:id="@+id/bLoginEntrar"
+        android:backgroundTint="@color/laranjaforte"
+        android:textColor="@color/black"
         android:text="Entrar"/>
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/laranjaforte"
+        android:textColor="@color/black"
         android:id="@+id/bLoginCancelar"
         android:text="Cancelar"/>
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
         android:id="@+id/bLoginEsqueciASenha"
+        android:backgroundTint="@color/laranjaforte"
+        android:textColor="@color/black"
         android:text="Esqueci a senha"/>
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
         android:id="@+id/bLoginCadastrar"
+        android:backgroundTint="@color/laranjaforte"
+        android:textColor="@color/black"
         android:text="Cadastrar"/>
 
 </LinearLayout >
