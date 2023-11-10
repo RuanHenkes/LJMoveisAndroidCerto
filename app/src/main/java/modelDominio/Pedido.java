@@ -13,38 +13,38 @@ public class Pedido implements Serializable{
     private String nomePedido;
     private String cor;
     private int textura;
-    private float valor;
+    private float orcamento;
     private String ambiente;
     private int status;
     private Usuario usuario;
 
-    public Pedido(int idPedido, String nomePedido, String cor, int textura, float valor, String ambiente, Usuario usuario) {
+    public Pedido(int idPedido, String nomePedido, String cor, int textura, float orcamento, String ambiente, Usuario usuario) {
         this.idPedido = idPedido;
         this.nomePedido = nomePedido;
         this.cor = cor;
         this.textura = textura;
-        this.valor = valor;
+        this.orcamento = orcamento;
+        this.ambiente = ambiente;
+        this.usuario = usuario;
+    }
+
+    public Pedido(String nomePedido, String cor, int textura, float orcamento, String ambiente, int status, Usuario usuario) {
+        this.nomePedido = nomePedido;
+        this.cor = cor;
+        this.textura = textura;
+        this.orcamento = orcamento;
         this.ambiente = ambiente;
         this.status = status;
         this.usuario = usuario;
     }
 
-    public Pedido(String nomePedido, String cor, int textura, float valor, String ambiente, int status, Usuario usuario) {
+
+    public Pedido(int idPedido, String nomePedido, String cor, int textura, float orcamento, String ambiente, int status, Usuario usuario) {
+        this.idPedido = idPedido;
         this.nomePedido = nomePedido;
         this.cor = cor;
         this.textura = textura;
-        this.valor = valor;
-        this.ambiente = ambiente;
-        this.status = status;
-        this.usuario = usuario;
-    }
-
-
-    public Pedido(int idPedido, String nomeItem, String cor, int textura, float orcamento, String ambiente, int status, Usuario usuario) {
-        this.nomePedido = nomePedido;
-        this.cor = cor;
-        this.textura = textura;
-        this.valor = valor;
+        this.orcamento = orcamento;
         this.ambiente = ambiente;
         this.status = status;
         this.usuario = usuario;
@@ -83,11 +83,11 @@ public class Pedido implements Serializable{
     }
 
     public float getValor() {
-        return valor;
+        return orcamento;
     }
 
-    public void setValor(float valor) {
-        this.valor = valor;
+    public void setValor(float orcamento) {
+        this.orcamento = orcamento;
     }
 
     public String getAmbiente() {
@@ -115,8 +115,8 @@ public class Pedido implements Serializable{
 
     }
     public String texturaLiteral(int textura){
-        String retorno = "MDF";
-
+        String retorno = "";
+//è melhor quando coloca o retorno como uma variavel, dai não tem que fazer outro IF
         if (textura == 1) {
             retorno = "Amadeirado";
 
