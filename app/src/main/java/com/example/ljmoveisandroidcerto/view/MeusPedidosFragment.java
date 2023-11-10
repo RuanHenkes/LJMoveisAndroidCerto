@@ -73,7 +73,7 @@ public class MeusPedidosFragment extends Fragment {
     PedidosAdapter.PedidoOnClickListener trataCliqueItem = new PedidosAdapter.PedidoOnClickListener() {
 
         public void onClickPedido(View view, int position, Pedido pedido) {
-            Toast.makeText(getContext(), "Pedido: " + pedido.getNomePedido() + " \nCor: "+pedido.getCor()  + " \nTextura: "+ pedido.getTextura()+ "\nDescrição: "+pedido.getDescricao()+"\nValor: "+pedido.getValor(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Pedido: " + pedido.getNomePedido() + " \nCor: "+pedido.getCor()  + " \nTextura: "+ pedido.getTextura()+ "\nValor: "+pedido.getValor(), Toast.LENGTH_SHORT).show();
 
         }
     };
