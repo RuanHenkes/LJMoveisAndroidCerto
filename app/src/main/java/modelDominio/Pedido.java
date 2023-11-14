@@ -49,6 +49,15 @@ public class Pedido implements Serializable{
         this.status = status;
         this.usuario = usuario;
     }
+    public Pedido(String nomePedido, String cor, int textura, float orcamento, String ambiente, int status, Usuario usuario) {
+        this.nomePedido = nomePedido;
+        this.cor = cor;
+        this.textura = textura;
+        this.orcamento = orcamento;
+        this.ambiente = ambiente;
+        this.status = status;
+        this.usuario = usuario;
+    }
 
     public int getIdPedido() {
         return idPedido;

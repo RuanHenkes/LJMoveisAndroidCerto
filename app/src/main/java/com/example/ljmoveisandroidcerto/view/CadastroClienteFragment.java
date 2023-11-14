@@ -58,9 +58,6 @@ public class CadastroClienteFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 // verificando se o usuário informou os dados
-                if (!binding.etCadastroClienteCpf.getText().toString().equals("")) {
-                    if (!binding.etCadastroClienteNome.getText().toString().equals("")) {
-                        if (!binding.etCadastroClienteSobrenome.getText().toString().equals("")) {
                             if (!binding.etCadastroClienteCelular.getText().toString().equals("")) {
                                 if (!binding.etCadastroClienteEmail.getText().toString().equals("")) {
                                     if (!binding.etCadastroClienteSenha.getText().toString().equals("")) {
@@ -144,18 +141,6 @@ public class CadastroClienteFragment extends Fragment {
                                 binding.etCadastroClienteCelular.setError("Erro: informe o celular.");
                                 binding.etCadastroClienteCelular.requestFocus();
                             }
-                        } else {
-                            binding.etCadastroClienteSobrenome.setError("Erro: informe o sobrenome.");
-                            binding.etCadastroClienteSobrenome.requestFocus();
-                        }
-                    } else {
-                        binding.etCadastroClienteNome.setError("Erro: informe o nome.");
-                        binding.etCadastroClienteNome.requestFocus();
-                    }
-                } else {
-                    binding.etCadastroClienteCpf.setError("Erro: informe o CPF.");
-                    binding.etCadastroClienteCpf.requestFocus();
-                }
             }
         });
 

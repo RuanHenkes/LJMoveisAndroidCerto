@@ -97,22 +97,22 @@ public class ConexaoController {
     //------------------AlterarCliente---------------------------
 
     public boolean clienteAlterar (Usuario usuario){
-        boolean resultadoAl;
+        boolean resultado;
         String mensagem;
         try {
             out.writeObject("ClienteAlterar");
             mensagem = (String) in.readObject();
             out.writeObject(usuario);
-            resultadoAl= (Boolean) in.readObject();
+            resultado = (Boolean) in.readObject();
         }catch(IOException ioe){
             System.out.println("Erro: " + ioe.getMessage());
-            resultadoAl = false;
+            resultado = false;
         }catch (ClassNotFoundException classe){
             System.out.println("Erro: " + classe.getMessage());
-            resultadoAl = false;
+            resultado = false;
         }
 
-        return resultadoAl;
+        return resultado;
     }
 
     //--------------------------------------Lista-----------------------------------//
