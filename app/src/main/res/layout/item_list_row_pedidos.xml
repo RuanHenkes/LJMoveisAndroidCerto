@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvVisualizarDecricaoPedido"
+                android:id="@+id/tvVisualizarAmbiente"
                 android:textColor="@color/black"
                 />
             <TextView

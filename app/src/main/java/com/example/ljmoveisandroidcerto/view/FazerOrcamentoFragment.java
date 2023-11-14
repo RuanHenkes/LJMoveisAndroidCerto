@@ -109,9 +109,7 @@ public class FazerOrcamentoFragment extends Fragment {
 
                                         Usuario usuarioLogado = informacoesViewModel.getUsuarioLogado();
                                         // instanciando o pedido
-                                        Pedido pedido = new Pedido(nomeMovel, qualCor, textura, preco, ambiente.getidAmbiente(), usuarioLogado);
-
-                                        // criando a thread para fazer um orcamento
+                                    Pedido pedido = new Pedido(nomeMovel, qualCor, textura, preco, ambiente.getNomeAmbiente(), 0, usuarioLogado);                                        // criando a thread para fazer um orcamento
                                         Thread thread = new Thread(new Runnable() {
                                             @Override
                                             public void run() {
@@ -149,7 +147,7 @@ public class FazerOrcamentoFragment extends Fragment {
                         binding.etFazerOrcamentoQualCor.setError("Erro: informe a cor do movel.");
                         binding.etFazerOrcamentoQualCor.requestFocus();
                     }
-                } 
+                }
 
         });
 
@@ -186,7 +184,7 @@ public class FazerOrcamentoFragment extends Fragment {
             Ambiente ambiente = listaAmbientes.get(x);
             nomeAmbientes[x + 1] = ambiente.getNomeAmbiente();
         }
-        
+
         // definindo o adapter (conteúdo) do spinner
         binding.spFazerOrcamentoAmbiente.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, nomeAmbientes));
     }

@@ -33,10 +33,12 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.MyViewHo
     @Override
     public void onBindViewHolder(final MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         Pedido pedido = listaPedidos.get(position);
-        holder.itemListRowPedidosBinding.tvVisualizarNomePedido.setText(pedido.getNomePedido());
-        holder.itemListRowPedidosBinding.tvVisualizarCorPedido.setText(pedido.getCor());
-        holder.itemListRowPedidosBinding.tvVisualizarTexturaPedido.setText(pedido.getTextura());
-        holder.itemListRowPedidosBinding.tvVisualizarValorPedido.setText((int) pedido.getValor());
+        holder.itemListRowPedidosBinding.tvVisualizarNomePedido.setText("Item: "+pedido.getNomePedido());
+        holder.itemListRowPedidosBinding.tvVisualizarCorPedido.setText("Cor: " + pedido.getCor());
+        holder.itemListRowPedidosBinding.tvVisualizarTexturaPedido.setText("Textura: " + pedido.texturaLiteral(pedido.getTextura()));
+        holder.itemListRowPedidosBinding.tvVisualizarAmbiente.setText("Ambiente: "+pedido.getAmbiente());
+        holder.itemListRowPedidosBinding.tvVisualizarValorPedido.setText("Valor: "+ pedido.getValor());
+        holder.itemListRowPedidosBinding.tvVisualizarStatusPedido.setText("Status" + pedido.statusLiteral(pedido.getStatus()));
         /* CUIDADO: .setText() precisa sempre de String. Se for outro tipo de dado, deve ser feita a conversão com o String.valueOf() */
 
         // tratando o clique no item
