@@ -1,14 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/azulfraco"
     tools:context=".view.AlterarDadosFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:text="Celular: "
+        android:id="@+id/tvCadastroClienteCelular"
+        />
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="34dp"
+        android:id="@+id/etCadastroClienteCelular"
+        android:inputType="numberDecimal"
+        android:background="@drawable/cadastro_botao"
+        android:paddingLeft="10dp"
+        android:text="51982481936 "
+        android:hint="Celular"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Email: "
+        android:id="@+id/tvCadastroClienteEmail"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:id="@+id/etCadastroClienteEmail"
+        android:background="@drawable/cadastro_botao"
+        android:paddingLeft="10dp"
+        android:hint="Email"
+        android:text="ruanhenkes.va601@academico.ifsul.edu.br"
+        />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Senha: "
+        android:id="@+id/tvCadastroClienteSenha"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:id="@+id/etCadastroClienteSenha"
+        android:background="@drawable/cadastro_botao"
+        android:paddingLeft="10dp"
+        android:text="12345"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Estado: "
+        android:id="@+id/tvCadastroClienteEstado"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:id="@+id/etCadastroClienteEstado"
+        android:background="@drawable/cadastro_botao"
+        android:paddingLeft="10dp"
+        android:text="RS"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Cidade: "
+        android:id="@+id/tvCadastroClienteCidade"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:id="@+id/etCadastroClienteCidade"
+        android:background="@drawable/cadastro_botao"
+        android:paddingLeft="10dp"
+        android:text="Santa Cruz do Sul"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Bairro: "
+        android:id="@+id/tvCadastroClienteBairro"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:id="@+id/etCadastroClienteBairro"
+        android:background="@drawable/cadastro_botao"
+        android:paddingLeft="10dp"
+        android:text="Schulz"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:text="Cep: "
+        android:id="@+id/tvCadastroClienteCep"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:id="@+id/etCadastroClienteCep"
+        android:inputType="numberDecimal"
+        android:background="@drawable/cadastro_botao"
+        android:paddingLeft="10dp"
+        android:text="96845710"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Numero do endereço: "
+        android:id="@+id/tvCadastroClienteNumeroEndereco"/>
+
+    <EditText
+        android:id="@+id/etCadastroClienteNumeroEndereco"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:inputType="numberDecimal"
+        android:background="@drawable/cadastro_botao"
+        android:paddingLeft="10dp"
+        android:text="70"
+        />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/laranjaforte"
+        android:textColor="@color/black"
+        android:text="Alterar"
+        android:id="@+id/bAlterarClienteSalvar"/>
+    <Button
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/laranjaforte"
+        android:textColor="@color/black"
+        android:text="Cancelar"
+        android:id="@+id/bAlterarClienteCancelar"/>
+
+</LinearLayout>

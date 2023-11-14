@@ -56,6 +56,14 @@ public class MenuClienteFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.acao_menuClienteFragment_to_meusPedidosFragment);
             }
         });
+
+
+        binding.bAlterarDados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.acao_menuCliente_alterarDados);
+            }
+        });
     }
     @Override
     public void onDestroyView() {

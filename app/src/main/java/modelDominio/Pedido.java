@@ -28,7 +28,7 @@ public class Pedido implements Serializable{
         this.usuario = usuario;
     }
 
-    public Pedido(String nomePedido, String cor, int textura, float orcamento, String ambiente, int status, Usuario usuario) {
+    public Pedido(String nomePedido, String cor, int textura, float orcamento, int status, Usuario usuario) {
         this.nomePedido = nomePedido;
         this.cor = cor;
         this.textura = textura;

@@ -40,4 +40,13 @@
         android:textColor="@color/black"
         android:text="Meus pedidos"/>
 
+    <Button
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="60dp"
+        android:id="@+id/bAlterarDados"
+        android:backgroundTint="@color/laranjaforte"
+        android:textColor="@color/black"
+        android:text="Alterar dados"/>
+
 </LinearLayout>

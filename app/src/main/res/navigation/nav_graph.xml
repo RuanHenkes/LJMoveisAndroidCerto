@@ -38,6 +38,9 @@
         <action
             android:id="@+id/action_menuClienteFragment_to_fazerOrcamentoFragment"
             app:destination="@id/fazerOrcamentoFragment" />
+        <action
+            android:id="@+id/acao_menuCliente_alterarDados"
+            app:destination="@id/alterarDadosFragment" />
     </fragment>
     <fragment
         android:id="@+id/catalogoFragment"
@@ -59,4 +62,9 @@
         android:name="com.example.ljmoveisandroidcerto.view.EsqueciSenhaFragment"
         android:label="fragment_esqueci_senha"
         tools:layout="@layout/fragment_esqueci_senha" />
+    <fragment
+        android:id="@+id/alterarDadosFragment"
+        android:name="com.example.ljmoveisandroidcerto.view.AlterarDadosFragment"
+        android:label="fragment_alterar_dados"
+        tools:layout="@layout/fragment_alterar_dados" />
 </navigation>
