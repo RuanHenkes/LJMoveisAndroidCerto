@@ -136,5 +136,13 @@
         android:textColor="@color/black"
         android:text="Cancelar"
         android:id="@+id/bAlterarClienteCancelar"/>
+    <Button
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/laranjaforte"
+        android:textColor="@color/black"
+        android:text="Alterar Senha"
+        android:id="@+id/bAlterarClienteSenha"/>
 
 </LinearLayout>

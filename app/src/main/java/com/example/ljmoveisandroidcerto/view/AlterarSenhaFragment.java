@@ -1,4 +1,4 @@
-package com.example.ljmoveisandroidcerto;
+package com.example.ljmoveisandroidcerto.view;
 
 import android.os.Bundle;
 
@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.ljmoveisandroidcerto.controller.ConexaoController;
-import com.example.ljmoveisandroidcerto.databinding.FragmentAlterarDadosBinding;
 import com.example.ljmoveisandroidcerto.databinding.FragmentAlterarSenhaBinding;
 import com.example.ljmoveisandroidcerto.viewModel.InformacoesViewModel;
 
@@ -41,14 +40,14 @@ public class AlterarSenhaFragment extends Fragment {
 
         informacoesViewModel = new ViewModelProvider(getActivity()).get(InformacoesViewModel.class);
 
-        binding.bAlterarClienteSenha.setOnClickListener(new View.OnClickListener() {
+        binding.bAlterarSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Trocar para pegar senha Criptografada
                 if (binding.etAlterarSenha.getText().toString().equals(informacoesViewModel.getUsuarioLogado().getSenha())){
                     if (binding.etNovaSenha.getText().toString().equals(binding.etNovaSenhaConfirmacao.toString())){
                         String email = informacoesViewModel.getUsuarioLogado().getEmail();
                         String novaSenha = binding.etNovaSenha.getText().toString();
-
                         cliente = new Cliente(email,novaSenha);
 
                         Thread thread = new Thread(new Runnable() {
@@ -67,7 +66,6 @@ public class AlterarSenhaFragment extends Fragment {
                                         }
                                     }
                                 });
-
                             }
                         });
                         thread.start();
@@ -80,6 +78,12 @@ public class AlterarSenhaFragment extends Fragment {
                 }
             }
         });
+
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
 
     }
 }

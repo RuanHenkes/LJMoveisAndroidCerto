@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AlterarSenhaFragment">
+    tools:context=".view.AlterarSenhaFragment">
 
     <TextView
         android:layout_width="wrap_content"
@@ -58,5 +58,5 @@
         android:backgroundTint="@color/laranjaforte"
         android:textColor="@color/black"
         android:text="Alterar"
-        android:id="@+id/bAlterarClienteSenha"/>
+        android:id="@+id/bAlterarSenha"/>
 </LinearLayout>

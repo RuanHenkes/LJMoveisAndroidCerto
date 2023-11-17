@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +47,6 @@ public class AlterarDadosFragment extends Fragment {
             public void onClick(View v) {
                             if (!binding.etCadastroClienteCelular.getText().toString().equals("")) {
                                 if (!binding.etCadastroClienteEmail.getText().toString().equals("")) {
-                                    if (!binding.etCadastroClienteSenha.getText().toString().equals("")) {
                                         if (!binding.etCadastroClienteEstado.getText().toString().equals("")) {
                                             if (!binding.etCadastroClienteCidade.getText().toString().equals("")) {
                                                 if (!binding.etCadastroClienteBairro.getText().toString().equals("")) {
@@ -58,7 +58,6 @@ public class AlterarDadosFragment extends Fragment {
                                                             String sobrenome = informacoesViewModel.getUsuarioLogado().getSobrenome();
                                                             String celular = binding.etCadastroClienteCelular.getText().toString();
                                                             String email = binding.etCadastroClienteEmail.getText().toString();
-                                                            String senha = binding.etCadastroClienteSenha.getText().toString();
                                                             String estado = binding.etCadastroClienteEstado.getText().toString();
                                                             String cidade = binding.etCadastroClienteCidade.getText().toString();
                                                             String bairro = binding.etCadastroClienteBairro.getText().toString();
@@ -66,7 +65,7 @@ public class AlterarDadosFragment extends Fragment {
                                                             int numeroendereco = Integer.parseInt(binding.etCadastroClienteNumeroEndereco.getText().toString());
 
                                                             //instanciando o cliente
-                                                            cliente = new Cliente(cpf, nome, sobrenome, celular, email, senha, estado, cidade, bairro, cep, numeroendereco);
+                                                            cliente = new Cliente(cpf, nome, sobrenome, celular, email, informacoesViewModel.getUsuarioLogado().getSenha(), estado, cidade, bairro, cep, numeroendereco);
                                                             // criando a thread para cadastro do cliente
                                                             Thread thread = new Thread(new Runnable() {
                                                                 @Override
@@ -114,10 +113,6 @@ public class AlterarDadosFragment extends Fragment {
                                             binding.etCadastroClienteEstado.setError("Erro: informe o estado.");
                                             binding.etCadastroClienteEstado.requestFocus();
                                         }
-                                    } else {
-                                        binding.etCadastroClienteSenha.setError("Erro: informe a senha.");
-                                        binding.etCadastroClienteSenha.requestFocus();
-                                    }
                                 } else {
                                     binding.etCadastroClienteEmail.setError("Erro: informe o Email.");
                                     binding.etCadastroClienteEmail.requestFocus();
@@ -127,6 +122,12 @@ public class AlterarDadosFragment extends Fragment {
                                 binding.etCadastroClienteCelular.requestFocus();
                             }
                         }
+        });
+        binding.bAlterarClienteSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_alterarDadosFragment_to_alterarSenhaFragment);
+            }
         });
     }
 

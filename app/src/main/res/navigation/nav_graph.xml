@@ -66,5 +66,14 @@
         android:id="@+id/alterarDadosFragment"
         android:name="com.example.ljmoveisandroidcerto.view.AlterarDadosFragment"
         android:label="fragment_alterar_dados"
-        tools:layout="@layout/fragment_alterar_dados" />
+        tools:layout="@layout/fragment_alterar_dados" >
+        <action
+            android:id="@+id/action_alterarDadosFragment_to_alterarSenhaFragment"
+            app:destination="@id/alterarSenhaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/alterarSenhaFragment"
+        android:name="com.example.ljmoveisandroidcerto.view.AlterarSenhaFragment"
+        android:label="fragment_alterar_senha"
+        tools:layout="@layout/fragment_alterar_senha" />
 </navigation>
