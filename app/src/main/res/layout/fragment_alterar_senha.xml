@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AlterarSenhaFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Senha: "
+        android:id="@+id/tvAlterarSenha"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:id="@+id/etAlterarSenha"
+        android:background="@drawable/cadastro_botao"
+        android:paddingLeft="10dp"
+        android:text="12345"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Nova Senha: "
+        android:id="@+id/tvNovaSenha"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:id="@+id/etNovaSenha"
+        android:background="@drawable/cadastro_botao"
+        android:paddingLeft="10dp"
+        android:text="12345"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Confirme a nova senha: "
+        android:id="@+id/tvNovaSenhaConfirmacao"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:id="@+id/etNovaSenhaConfirmacao"
+        android:background="@drawable/cadastro_botao"
+        android:paddingLeft="10dp"
+        android:text="12345"
+        />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/laranjaforte"
+        android:textColor="@color/black"
+        android:text="Alterar"
+        android:id="@+id/bAlterarClienteSenha"/>
+</LinearLayout>

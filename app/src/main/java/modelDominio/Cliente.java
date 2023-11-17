@@ -14,6 +14,9 @@ public class Cliente extends Usuario implements Serializable{
         super(nome, sobrenome, celular, email, senha, estado, cidade, bairro, cep, numeroEndereco);
     }
 
+    public Cliente(String email, String senha) {
+        super(email, senha);
+    }
 
     @Override
     public String toString() {

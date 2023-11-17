@@ -40,20 +40,6 @@
         android:text="ruanhenkes.va601@academico.ifsul.edu.br"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="Senha: "
-        android:id="@+id/tvCadastroClienteSenha"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="34dp"
-        android:id="@+id/etCadastroClienteSenha"
-        android:background="@drawable/cadastro_botao"
-        android:paddingLeft="10dp"
-        android:text="12345"
-        />
 
     <TextView
         android:layout_width="wrap_content"

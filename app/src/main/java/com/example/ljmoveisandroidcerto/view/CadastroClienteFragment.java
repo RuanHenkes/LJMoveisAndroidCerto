@@ -104,7 +104,6 @@ public class CadastroClienteFragment extends Fragment {
                                                             });
                                                             thread.start();
 
-                                                            //----perguntar pro sor se devo colocar aqui a chamada de tela pra login
 
                                                         } else {
                                                             binding.etCadastroClienteNumeroEndereco.setError("Erro: informe o número do endereço.");
