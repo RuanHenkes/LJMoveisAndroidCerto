@@ -84,11 +84,10 @@ public class ConexaoController {
             resultado = (Boolean) this.informacoesViewModel.getInputStream().readObject();
 
         }catch (IOException ioe){
-            Log.e("BikeShop", "Erro: "+ioe.getMessage());
+            Log.e("LJMoveisAndroidCerto", "Erro: "+ioe.getMessage());
             resultado = false;
-
         }catch (ClassNotFoundException classe){
-            Log.e("BikeShop", "Erro: "+classe.getMessage());
+            Log.e("LJMoveisAndroidCerto", "Erro: "+classe.getMessage());
             resultado = false;
         }
         return resultado;
@@ -100,15 +99,21 @@ public class ConexaoController {
         boolean resultado;
         String mensagem;
         try {
-            out.writeObject("ClienteAlterar");
-            mensagem = (String) in.readObject();
+            this.informacoesViewModel.getOutputStream().writeObject("clienteAlterar");
+            System.out.println("Mandei Cliente Alterar");
+            mensagem = (String) this.informacoesViewModel.getInputStream().readObject();
+            this.informacoesViewModel.getOutputStream().writeObject(usuario);
+            resultado = (Boolean) this.informacoesViewModel.getInputStream().readObject();
+
             out.writeObject(usuario);
+            System.out.println("Mandei Usuario");
             resultado = (Boolean) in.readObject();
-        }catch(IOException ioe){
-            System.out.println("Erro: " + ioe.getMessage());
+
+        }catch (IOException ioe){
+            Log.e("LJMoveisAndroidCerto", "Erro: "+ioe.getMessage());
             resultado = false;
         }catch (ClassNotFoundException classe){
-            System.out.println("Erro: " + classe.getMessage());
+            Log.e("LJMoveisAndroidCerto", "Erro: "+classe.getMessage());
             resultado = false;
         }
 
