@@ -15,8 +15,11 @@ import android.widget.Toast;
 
 import com.example.ljmoveisandroidcerto.R;
 import com.example.ljmoveisandroidcerto.controller.ConexaoController;
+import com.example.ljmoveisandroidcerto.controller.Hash;
 import com.example.ljmoveisandroidcerto.databinding.FragmentLoginBinding;
 import com.example.ljmoveisandroidcerto.viewModel.InformacoesViewModel;
+
+import kotlinx.coroutines.debug.internal.HashedWeakRef;
 import modelDominio.Usuario;
 
 
@@ -78,8 +81,10 @@ public class LoginFragment extends Fragment {
                         // obtendo as informações
                         String usuario = binding.etLoginUsuario.getText().toString();
                         String senha = binding.etLoginSenha.getText().toString();
+                        String senhaCriptografada = Hash.hashPassword(senha);
+
                         // instanciando o usuário que está se logando
-                        usuarioLogado = new Usuario(usuario, senha);
+                        usuarioLogado = new Usuario(usuario, senhaCriptografada);
                         // criando a thread para autenticar o usuário
                         Thread thread = new Thread(new Runnable() {
                             @Override

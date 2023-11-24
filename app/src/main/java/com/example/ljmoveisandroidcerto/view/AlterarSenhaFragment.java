@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.ljmoveisandroidcerto.controller.ConexaoController;
+import com.example.ljmoveisandroidcerto.controller.Hash;
 import com.example.ljmoveisandroidcerto.databinding.FragmentAlterarSenhaBinding;
 import com.example.ljmoveisandroidcerto.viewModel.InformacoesViewModel;
 
@@ -48,7 +49,8 @@ public class AlterarSenhaFragment extends Fragment {
                     if (binding.etNovaSenha.getText().toString().equals(binding.etNovaSenhaConfirmacao.toString())){
                         String email = informacoesViewModel.getUsuarioLogado().getEmail();
                         String novaSenha = binding.etNovaSenha.getText().toString();
-                        cliente = new Cliente(email,novaSenha);
+                        String novaSenhaCriptografada = Hash.hashPassword(novaSenha);
+                        cliente = new Cliente(email,novaSenhaCriptografada);
 
                         Thread thread = new Thread(new Runnable() {
                             @Override

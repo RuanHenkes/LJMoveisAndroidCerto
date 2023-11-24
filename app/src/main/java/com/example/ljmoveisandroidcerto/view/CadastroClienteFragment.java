@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.ljmoveisandroidcerto.R;
 import com.example.ljmoveisandroidcerto.controller.ConexaoController;
+import com.example.ljmoveisandroidcerto.controller.Hash;
 import com.example.ljmoveisandroidcerto.databinding.FragmentCadastroClienteBinding;
 import com.example.ljmoveisandroidcerto.viewModel.InformacoesViewModel;
 
@@ -73,6 +74,7 @@ public class CadastroClienteFragment extends Fragment {
                                                             String celular = binding.etCadastroClienteCelular.getText().toString();
                                                             String email = binding.etCadastroClienteEmail.getText().toString();
                                                             String senha = binding.etCadastroClienteSenha.getText().toString();
+                                                            String senhaCriptografada = Hash.hashPassword(senha);
                                                             String estado = binding.etCadastroClienteEstado.getText().toString();
                                                             String cidade = binding.etCadastroClienteCidade.getText().toString();
                                                             String bairro = binding.etCadastroClienteBairro.getText().toString();
@@ -80,7 +82,7 @@ public class CadastroClienteFragment extends Fragment {
                                                             int numeroendereco = Integer.parseInt(binding.etCadastroClienteNumeroEndereco.getText().toString());
 
                                                             //instanciando o cliente
-                                                            cliente = new Cliente(cpf, nome, sobrenome, celular, email, senha, estado, cidade, bairro, cep, numeroendereco);
+                                                            cliente = new Cliente(cpf, nome, sobrenome, celular, email, senhaCriptografada, estado, cidade, bairro, cep, numeroendereco);
                                                             // criando a thread para cadastro do cliente
                                                             Thread thread = new Thread(new Runnable() {
                                                                 @Override
