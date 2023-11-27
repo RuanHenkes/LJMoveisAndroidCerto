@@ -19,7 +19,6 @@ import com.example.ljmoveisandroidcerto.controller.Hash;
 import com.example.ljmoveisandroidcerto.databinding.FragmentLoginBinding;
 import com.example.ljmoveisandroidcerto.viewModel.InformacoesViewModel;
 
-import kotlinx.coroutines.debug.internal.HashedWeakRef;
 import modelDominio.Usuario;
 
 
